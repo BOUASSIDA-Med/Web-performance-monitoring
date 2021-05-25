@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientJsonpModule } from '@angular/common/http';
+import { HttpClient, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagespeedService } from 'services/pagespeed.service';
@@ -13,6 +13,7 @@ import { PagespeedService } from 'services/pagespeed.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     HttpClientJsonpModule 
   ],
   providers: [PagespeedService],
