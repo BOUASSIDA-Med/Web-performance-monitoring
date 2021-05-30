@@ -1,0 +1,11 @@
+.input-group {
+    padding: 1rem 2rem;
+}
+.headline {
+    padding: 1rem 0.5rem;
+}
+
+.title{
+    flex: 1 1 auto;
+    text-align: center;
+}

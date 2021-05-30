@@ -3,20 +3,23 @@ import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PagespeedService } from 'services/pagespeed.service';
+import { PageSpeedCompareComponent } from './page-speed-compare/page-speed-compare.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageSpeedCompareComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientJsonpModule 
+    HttpClientJsonpModule,
+    FormsModule 
   ],
-  providers: [PagespeedService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
