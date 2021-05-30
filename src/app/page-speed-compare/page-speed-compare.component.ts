@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { InputUrl } from 'model/inputUrl.model';
+import { InputUrl } from 'src/app/model/inputUrl.model';
 import { delay } from 'rxjs/operators';
 
 
