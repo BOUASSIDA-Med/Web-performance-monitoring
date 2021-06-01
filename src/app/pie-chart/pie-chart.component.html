@@ -1,0 +1,19 @@
+
+<div>
+    <div>
+    <ng-container *ngIf="show" >
+      <div style="display: block">
+        <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType">
+        </canvas>
+      </div>
+    </ng-container>
+      <button mat-button mat-raised-button color="primary" (click)="randomize(5)">Update</button>
+    </div>
+
+  </div>

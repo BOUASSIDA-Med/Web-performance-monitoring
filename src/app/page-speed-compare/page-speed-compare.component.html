@@ -9,18 +9,28 @@
     <input type="text" [(ngModel)]="inputUrl.pageUrl" name="pageUrl" class="form-control" placeholder="Enter a page URL" aria-label="Recipient's username" aria-describedby="basic-addon2">
     <input type="text" [(ngModel)]="inputUrl.apiKey" name="apiKey" class="form-control" placeholder="Enter an API key" aria-label="Recipient's username" aria-describedby="basic-addon2">
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary" (click)="submitPageSpeed()" type="button">Run audit</button>
+      <button class="btn btn-outline-secondary" 
+     (click)="submitPageSpeed()" type="button">Run audit</button>
     </div>
   </div>
 </div>
-  
-
-
-  
-
+<ng-container *ngIf="show" >
+  <h2>User experience</h2>
+  <h3>Summary</h3>
+  <div style="display: block">
+    <canvas baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType">
+    </canvas>
+  </div>
+</ng-container>
 
 <div>
-    <h1>PSI score:</h1>
+    <!-- <h1>PSI score:</h1>
     <pre>{{response.lighthouseResult.categories.performance.score | json}}</pre>
   </div>
   <div>
@@ -34,6 +44,6 @@
   <div>
 <h1>Lighthouse report opportunities:</h1>
     <pre>{{response.lighthouseResult.audits['uses-rel-preload'] | json}}</pre>
-</div>
+</div> -->
  
-  <button (click)="fetchData()"> Get  </button>
+
