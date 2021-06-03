@@ -33,8 +33,11 @@ export class PageSpeedCompareComponent implements OnInit {
   public barChartPlugins = [pluginDataLabels];
 
   public barChartData: ChartDataSets[] = [
-    { data: [1,0,0,0], label: 'PSI score' },
-   // { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+    { data: [0,0,0,0], label: 'PSI score' },
+    { data: [1,0.01,0], label: 'First Contentful Paint (FCP)' },
+    { data: [1,0.01,0], label: 'First Input dealy (FID)' },
+    { data: [1,0.01,0], label: 'Cumulative Layout Shift (CLS)' },
+    { data: [1,0.01,0], label: 'Largest Contentful Paint (LCP)' }
   ];
  
 
@@ -71,10 +74,16 @@ export class PageSpeedCompareComponent implements OnInit {
       
     //this.message = "Fetched";
     //console.log(this.response);
-    this.show = !this.show;
+    this.show = true;
     this.barChartData[0].data = [this.response.lighthouseResult.categories.performance.score];
+    this.barChartData[1].data = [this.response.loadingExperience.metrics.FIRST_CONTENTFUL_PAINT_MS.distributions[0].proportion];
+    this.barChartData[2].data = [this.response.loadingExperience.metrics.CUMULATIVE_LAYOUT_SHIFT_SCORE.distributions[0].proportion];
+    this.barChartData[3].data = [this.response.loadingExperience.metrics.FIRST_INPUT_DELAY_MS.distributions[0].proportion];
 
-    console.log(this.response.lighthouseResult.categories.performance.score);
+    this.barChartData[4].data = [this.response.loadingExperience.metrics.LARGEST_CONTENTFUL_PAINT_MS.distributions[0].proportion];
+    //console.log(this.response.lighthouseResult.categories.performance.score);
+   // console.log(this.response.loadingExperience.metrics.LARGEST_CONTENTFUL_PAINT_MS.distributions[0].proportion);
+    console.log(this.response.loadingExperience.metrics);
   }
   submitPageSpeed(){
 
